@@ -3,6 +3,7 @@ import type { AppProps } from "next/app"
 import LogoImg from "@/assets/logo.svg"
 import { Roboto } from "next/font/google"
 import { Container, Header } from "@/styles/pages/app"
+import Image from "next/image"
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -13,13 +14,11 @@ globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Container>
+    <Container className={roboto.className}>
       <Header>
-        <img src={LogoImg.src} alt="App Logo" />
+        <Image src={LogoImg} width={130} height={52} alt="App Logo" />
       </Header>
-      <main className={roboto.className}>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </Container>
   )
 }
