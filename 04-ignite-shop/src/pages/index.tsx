@@ -13,8 +13,7 @@ interface HomeProps {
     id: string
     name: string
     imageUrl: string
-    description: string
-    price: number
+    price: string
   }[]
 }
 
@@ -59,7 +58,6 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      description: product.description,
       price: new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
